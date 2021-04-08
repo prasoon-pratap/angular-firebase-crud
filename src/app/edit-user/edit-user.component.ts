@@ -45,31 +45,24 @@ export class EditUserComponent implements OnInit {
         this.userForm = this.fb.group({
           firstname: [this.item.firstname, Validators.required],
           lastname: [this.item.lastname, Validators.required],
-          email: [this.item.email, Validators.required]
+          email: [this.item.email, Validators.required],
+          noticeC: [this.item.noticeC],
+          noticeE: [this.item.noticeE],
+          noticeD: [this.item.noticeD],
+          postC: [this.item.postC],
+          postE: [this.item.postE],
+          postD: [this.item.postD],
+          alertC: [this.item.alertC],
+          alertE: [this.item.alertE],
+          alertD: [this.item.alertD],
         });
       }
     })
   }
 
-  createForm() {
-   
-  }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(AvatarDialogComponent, {
-      height: '400px',
-      width: '400px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if(result){
-        this.item.avatar = result.link;
-      }
-    });
-  }
 
   onSubmit(value){
-    value.avatar = this.item.avatar;
     value.email = value.email;
     this.firebaseService.updateUser(this.item.id, value)
     .then(

@@ -42,13 +42,20 @@ export class FirebaseService {
   // }
 
 
-  createUser(value:User, avatar){
+  createUser(value:User){
     return this.db.collection('users').add({
       firstname: value.firstname,
-      // nameToSearch: value.name.toLowerCase(),
       lastname: value.lastname,
       email: value.email,
-      avatar: avatar
+      noticeC: value.noticeC,
+      noticeE: value.noticeE,
+      noticeD: value.noticeD,
+      postC: value.postC,
+      postE: value.postE,
+      postD: value.postD,
+      alertC: value.alertC,
+      alertE: value.alertE,
+      alertD: value.alertD,
     });
   }
 }

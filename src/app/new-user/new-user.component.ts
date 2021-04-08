@@ -13,7 +13,6 @@ import { FirebaseService } from '../services/firebase.service';
 export class NewUserComponent implements OnInit {
 
   userForm: FormGroup;
-  avatarLink: string = "https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg";
 
   validation_messages = {
    'firstname': [
@@ -42,34 +41,43 @@ export class NewUserComponent implements OnInit {
     this.userForm = this.fb.group({
       firstname: ['', Validators.required ],
       lastname: ['', Validators.required ],
-      email: ['', Validators.required ]
+      email: ['', Validators.required ],
+      noticeC: [],
+      noticeE: [],
+      noticeD: [],
+      postC: [],
+      postE: [],
+      postD: [],
+      alertC: [],
+      alertE: [],
+      alertD: []
     });
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(AvatarDialogComponent, {
-      height: '400px',
-      width: '400px',
-    });
+  
 
-    dialogRef.afterClosed().subscribe(result => {
-      if(result){
-        this.avatarLink = result.link;
-      }
-    });
-  }
+   
 
   resetFields(){
-    this.avatarLink = "https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg";
+    
     this.userForm = this.fb.group({
       firstname: new FormControl('', Validators.required),
       lastname: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
+      noticeC: new FormControl(),
+      noticeE: new FormControl(),
+      noticeD: new FormControl(),
+      postC: new FormControl(),
+      postE: new FormControl(),
+      postD: new FormControl(),
+      alertC: new FormControl(),
+      alertE: new FormControl(),
+      alertD: new FormControl(),
     });
   }
 
   onSubmit(value){
-    this.firebaseService.createUser(value, this.avatarLink)
+    this.firebaseService.createUser(value)
     .then(
       res => {
         this.resetFields();

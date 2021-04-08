@@ -42,6 +42,45 @@
             </ng-container>
           </div>
 
+          <div class="form-group">
+            Notice:
+            <mat-checkbox class="input-style">
+              <input type="checkbox" formControlName="noticeC">Create
+            </mat-checkbox>
+            <mat-checkbox class="input-style">
+              <input type="checkbox" formControlName="noticeE">Edit
+            </mat-checkbox>
+            <mat-checkbox class="input-style">
+              <input type="checkbox" formControlName="noticeD">Delete
+            </mat-checkbox>
+          </div>
+
+          <div class="form-group">
+            Post:
+            <mat-checkbox class="input-style">
+              <input type="checkbox" formControlName="postC">Create
+            </mat-checkbox>
+            <mat-checkbox class="input-style">
+              <input type="checkbox" formControlName="postE">Edit
+            </mat-checkbox>
+            <mat-checkbox class="input-style">
+              <input type="checkbox" formControlName="postD">Delete
+            </mat-checkbox>
+          </div>
+          <div class="form-group">
+            Alert:
+            <mat-checkbox class="input-style">
+              <input type="checkbox" formControlName="alertC">Create
+            </mat-checkbox>
+            <mat-checkbox class="input-style">
+              <input type="checkbox" formControlName="alertE">Edit
+            </mat-checkbox>
+            <mat-checkbox class="input-style">
+              <input type="checkbox" formControlName="alertD">Delete
+            </mat-checkbox>
+          </div>
+
+
           <div class="row submit-button-container">
             <div class="col-md-2">
               <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!userForm.valid">Create</button>
