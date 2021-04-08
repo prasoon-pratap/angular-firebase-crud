@@ -41,22 +41,22 @@ export class HomeComponent implements OnInit {
     return value.charAt(0).toUpperCase() + value.slice(1);
   }
 
-  searchByName(){
-    let value = this.searchValue.toLowerCase();
-    this.firebaseService.searchUsers(value)
-    .subscribe(result => {
-      this.name_filtered_items = result;
-      this.items = this.combineLists(result, this.age_filtered_items);
-    })
-  }
+  // searchByName(){
+  //   let value = this.searchValue.toLowerCase();
+  //   this.firebaseService.searchUsers(value)
+  //   .subscribe(result => {
+  //     this.name_filtered_items = result;
+  //     this.items = this.combineLists(result, this.age_filtered_items);
+  //   })
+  // }
 
-  rangeChange(event){
-    this.firebaseService.searchUsersByAge(event.value)
-    .subscribe(result =>{
-      this.age_filtered_items = result;
-      this.items = this.combineLists(result, this.name_filtered_items);
-    })
-  }
+  // rangeChange(event){
+  //   this.firebaseService.searchUsersByAge(event.value)
+  //   .subscribe(result =>{
+  //     this.age_filtered_items = result;
+  //     this.items = this.combineLists(result, this.name_filtered_items);
+  //   })
+  // }
 
   combineLists(a, b){
     let result = [];

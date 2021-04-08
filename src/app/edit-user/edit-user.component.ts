@@ -13,18 +13,18 @@ import { Router } from '@angular/router';
 })
 export class EditUserComponent implements OnInit {
 
-  exampleForm: FormGroup;
+  userForm: FormGroup;
   item: any;
 
   validation_messages = {
-   'name': [
-     { type: 'required', message: 'Name is required.' }
+   'firstname': [
+     { type: 'required', message: 'First Name is required.' }
    ],
-   'surname': [
-     { type: 'required', message: 'Surname is required.' }
+   'lastname': [
+     { type: 'required', message: 'Last Name is required.' }
    ],
-   'age': [
-     { type: 'required', message: 'Age is required.' },
+   'email': [
+     { type: 'required', message: 'E-mail is required.' },
    ]
  };
 
@@ -42,17 +42,17 @@ export class EditUserComponent implements OnInit {
       if (data) {
         this.item = data.payload.data();
         this.item.id = data.payload.id;
-        this.createForm();
+        this.userForm = this.fb.group({
+          firstname: [this.item.firstname, Validators.required],
+          lastname: [this.item.lastname, Validators.required],
+          email: [this.item.email, Validators.required]
+        });
       }
     })
   }
 
   createForm() {
-    this.exampleForm = this.fb.group({
-      name: [this.item.name, Validators.required],
-      surname: [this.item.surname, Validators.required],
-      age: [this.item.age, Validators.required]
-    });
+   
   }
 
   openDialog() {
@@ -70,7 +70,7 @@ export class EditUserComponent implements OnInit {
 
   onSubmit(value){
     value.avatar = this.item.avatar;
-    value.age = Number(value.age);
+    value.email = value.email;
     this.firebaseService.updateUser(this.item.id, value)
     .then(
       res => {

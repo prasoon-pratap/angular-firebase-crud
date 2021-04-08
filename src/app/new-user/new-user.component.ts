@@ -12,18 +12,18 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class NewUserComponent implements OnInit {
 
-  exampleForm: FormGroup;
+  userForm: FormGroup;
   avatarLink: string = "https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg";
 
   validation_messages = {
-   'name': [
-     { type: 'required', message: 'Name is required.' }
+   'firstname': [
+     { type: 'required', message: 'First Name is required.' }
    ],
-   'surname': [
-     { type: 'required', message: 'Surname is required.' }
+   'lastname': [
+     { type: 'required', message: 'Last Name is required.' }
    ],
-   'age': [
-     { type: 'required', message: 'Age is required.' },
+   'email': [
+     { type: 'required', message: 'Email is required.' },
    ]
  };
 
@@ -39,10 +39,10 @@ export class NewUserComponent implements OnInit {
   }
 
   createForm() {
-    this.exampleForm = this.fb.group({
-      name: ['', Validators.required ],
-      surname: ['', Validators.required ],
-      age: ['', Validators.required ]
+    this.userForm = this.fb.group({
+      firstname: ['', Validators.required ],
+      lastname: ['', Validators.required ],
+      email: ['', Validators.required ]
     });
   }
 
@@ -61,10 +61,10 @@ export class NewUserComponent implements OnInit {
 
   resetFields(){
     this.avatarLink = "https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg";
-    this.exampleForm = this.fb.group({
-      name: new FormControl('', Validators.required),
-      surname: new FormControl('', Validators.required),
-      age: new FormControl('', Validators.required),
+    this.userForm = this.fb.group({
+      firstname: new FormControl('', Validators.required),
+      lastname: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
     });
   }
 

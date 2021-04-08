@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyBMOaRr0NirNOX-eh2ITJBHUpL3ow8Hr4w",
-    authDomain: "splendid-ground-95214.firebaseapp.com",
-    databaseURL: "https://splendid-ground-95214.firebaseio.com",
-    projectId: "splendid-ground-95214",
-    storageBucket: "",
-    messagingSenderId: "429226112331"
+     apiKey: "AIzaSyCHw2OD2YVBDnSGD7Y3nYZHLb8uWBXDOoM",
+  authDomain: "ng-crud-app-8899d.firebaseapp.com",
+  projectId: "ng-crud-app-8899d",
+  storageBucket: "ng-crud-app-8899d.appspot.com",
+  messagingSenderId: "797734280127",
+  appId: "1:797734280127:web:6e354b99178e8e66ecdf0a",
+  measurementId: "G-3KK6F4D4BL"
   }
 };
 

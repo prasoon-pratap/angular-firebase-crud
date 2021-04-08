@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { User } from '../user.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +18,8 @@ export class FirebaseService {
     return this.db.collection('users').doc(userKey).snapshotChanges();
   }
 
-  updateUser(userKey, value){
-    value.nameToSearch = value.name.toLowerCase();
+  updateUser(userKey, value:User){
+    // value.nameToSearch = value.name.toLowerCase();
     return this.db.collection('users').doc(userKey).set(value);
   }
 
@@ -29,23 +31,23 @@ export class FirebaseService {
     return this.db.collection('users').snapshotChanges();
   }
 
-  searchUsers(searchValue){
-    return this.db.collection('users',ref => ref.where('nameToSearch', '>=', searchValue)
-      .where('nameToSearch', '<=', searchValue + '\uf8ff'))
-      .snapshotChanges()
-  }
+  // searchUsers(searchValue){
+  //   return this.db.collection('users',ref => ref.where('nameToSearch', '>=', searchValue)
+  //     .where('nameToSearch', '<=', searchValue + '\uf8ff'))
+  //     .snapshotChanges()
+  // }
 
-  searchUsersByAge(value){
-    return this.db.collection('users',ref => ref.orderBy('age').startAt(value)).snapshotChanges();
-  }
+  // searchUsersByAge(value){
+  //   return this.db.collection('users',ref => ref.orderBy('email').startAt(value)).snapshotChanges();
+  // }
 
 
-  createUser(value, avatar){
+  createUser(value:User, avatar){
     return this.db.collection('users').add({
-      name: value.name,
-      nameToSearch: value.name.toLowerCase(),
-      surname: value.surname,
-      age: parseInt(value.age),
+      firstname: value.firstname,
+      // nameToSearch: value.name.toLowerCase(),
+      lastname: value.lastname,
+      email: value.email,
       avatar: avatar
     });
   }
