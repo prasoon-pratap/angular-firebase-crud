@@ -9,11 +9,9 @@ import { Router, Params } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  ageValue: number = 0;
-  searchValue: string = "";
+  
   items: Array<any>;
-  age_filtered_items: Array<any>;
-  name_filtered_items: Array<any>;
+
 
   constructor(
     public firebaseService: FirebaseService,
@@ -28,13 +26,17 @@ export class HomeComponent implements OnInit {
     this.firebaseService.getUsers()
     .subscribe(result => {
       this.items = result;
-      this.age_filtered_items = result;
-      this.name_filtered_items = result;
+      // this.age_filtered_items = result;
+      // this.name_filtered_items = result;
     })
   }
 
   viewDetails(item){
     this.router.navigate(['/details/'+ item.payload.doc.id]);
+  }
+
+  view(item){
+    this.router.navigate(['/user-details'])
   }
 
   capitalizeFirstLetter(value){

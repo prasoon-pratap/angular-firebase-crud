@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
-import { AvatarDialogComponent } from "../avatar-dialog/avatar-dialog.component";
+// import { AvatarDialogComponent } from "../avatar-dialog/avatar-dialog.component";
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
 
@@ -46,6 +46,7 @@ export class EditUserComponent implements OnInit {
           firstname: [this.item.firstname, Validators.required],
           lastname: [this.item.lastname, Validators.required],
           email: [this.item.email, Validators.required],
+          address: [this.item.address],
           noticeC: [this.item.noticeC],
           noticeE: [this.item.noticeE],
           noticeD: [this.item.noticeD],

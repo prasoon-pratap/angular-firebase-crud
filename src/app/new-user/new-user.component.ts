@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
-import { AvatarDialogComponent } from "../avatar-dialog/avatar-dialog.component";
+// import { AvatarDialogComponent } from "../avatar-dialog/avatar-dialog.component";
 import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
 
@@ -42,6 +42,7 @@ export class NewUserComponent implements OnInit {
       firstname: ['', Validators.required ],
       lastname: ['', Validators.required ],
       email: ['', Validators.required ],
+      address:[''],
       noticeC: [],
       noticeE: [],
       noticeD: [],
@@ -64,6 +65,7 @@ export class NewUserComponent implements OnInit {
       firstname: new FormControl('', Validators.required),
       lastname: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
+      address: new FormControl(''),
       noticeC: new FormControl(),
       noticeE: new FormControl(),
       noticeD: new FormControl(),

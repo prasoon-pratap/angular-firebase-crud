@@ -10,9 +10,9 @@ export class FirebaseService {
 
   constructor(public db: AngularFirestore) {}
 
-  getAvatars(){
-      return this.db.collection('/avatar').valueChanges()
-  }
+  // getAvatars(){
+  //     return this.db.collection('/avatar').valueChanges()
+  // }
 
   getUser(userKey){
     return this.db.collection('users').doc(userKey).snapshotChanges();
@@ -47,6 +47,7 @@ export class FirebaseService {
       firstname: value.firstname,
       lastname: value.lastname,
       email: value.email,
+      address: value.address,
       noticeC: value.noticeC,
       noticeE: value.noticeE,
       noticeD: value.noticeD,

@@ -38,10 +38,16 @@
       <div class="col col-md-8 text-col">
         <h5 class="mb-1">{{item.payload.doc.data().firstname}} {{item.payload.doc.data().lastname}}</h5>
         <small>Email: {{item.payload.doc.data().email}}</small>
+       <p> <small>Address: {{item.payload.doc.data().address}}</small></p>
       </div>
       <div class="col col-md-2 actions-col">
         <button class="btn btn-outline-primary action" (click)="viewDetails(item)" type="button">
           <ion-icon class="icon" name="arrow-round-forward"></ion-icon>
+        </button>
+      </div>
+      <div class="col col-md-2 actions-col">
+        <button class="btn btn-outline-primary action" (click)="view(item)" type="button">
+          <ion-icon class="icon" name="eye"></ion-icon>
         </button>
       </div>
     </div>

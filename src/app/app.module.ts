@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { rootRouterConfig } from './app.routes';
 
 import { AppComponent } from './app.component';
-import { AvatarDialogComponent } from './avatar-dialog/avatar-dialog.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditUserResolver } from './edit-user/edit-user.resolver';
 import { NewUserComponent } from './new-user/new-user.component';
@@ -19,17 +18,18 @@ import { FirebaseService } from './services/firebase.service';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule } from '@angular/material';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AvatarDialogComponent,
     EditUserComponent,
     NewUserComponent,
-    HomeComponent
+    HomeComponent,
+    UserDetailsComponent
   ],
-  entryComponents: [AvatarDialogComponent],
+  entryComponents: [],
   imports: [
     BrowserModule,
     FormsModule,
