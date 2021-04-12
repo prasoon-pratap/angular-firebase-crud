@@ -1,6 +1,25 @@
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
+
+  <div class="list-group users-list">
+    <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="row">
+        <div class="col col-md-8 text-col">
+          <h5 class="mb-1">{{item.payload.doc.data().firstname}} {{item.payload.doc.data().lastname}}</h5>
+          <small>Email: {{item.payload.doc.data().email}}</small>
+         <p> <small>Address: {{item.payload.doc.data().address}}</small></p>
+        </div>
+        <div class="col col-md-2 actions-col">
+          <button class="btn btn-outline-primary action" (click)="viewDetails(item)" type="button">
+            <ion-icon class="icon" name="create"></ion-icon>
+          </button>
+        </div>
+        <div class="col col-md-2 actions-col">
+          <button class="btn btn-outline-primary action" (click)="view(item)" type="button">
+            <ion-icon class="icon" name="trash"></ion-icon>
+          </button>
+        </div>
   <table style="width:90%">
   <tr>
     <th>Entitlement</th>
@@ -50,3 +69,7 @@
   </tr>
 
 </table>
+      </div>
+    </div>
+  </div>
+  

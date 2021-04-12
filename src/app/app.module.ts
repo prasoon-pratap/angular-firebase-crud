@@ -19,6 +19,7 @@ import { FirebaseService } from './services/firebase.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule } from '@angular/material';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     EditUserComponent,
     NewUserComponent,
     HomeComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    LoginComponent
   ],
   entryComponents: [],
   imports: [
